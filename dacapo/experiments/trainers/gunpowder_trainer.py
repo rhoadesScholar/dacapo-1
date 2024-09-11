@@ -44,6 +44,7 @@ class GunpowderTrainer(Trainer):
         augments (List[Augment]): The list of augmentations to apply to the data.
         mask_integral_downsample_factor (int): The downsample factor for the mask integral.
         clip_raw (bool): Whether to clip the raw data.
+        ensure_centered (bool): If sample points are provided, this value specifies whether those points are centered on during training. Defaults to true.
         scheduler (torch.optim.lr_scheduler.LinearLR): The learning rate scheduler.
     Methods:
         create_optimizer(model: Model) -> torch.optim.Optimizer:
@@ -91,6 +92,7 @@ class GunpowderTrainer(Trainer):
         self.augments = trainer_config.augments
         self.mask_integral_downsample_factor = 4
         self.clip_raw = trainer_config.clip_raw
+        self.ensure_centered = trainer_config.ensure_centered
 
         self.scheduler = None
 
@@ -214,9 +216,7 @@ class GunpowderTrainer(Trainer):
                     ensure_nonempty=(
                         sample_points_key if points_source is not None else None
                     ),
-                    ensure_centered=(
-                        sample_points_key if points_source is not None else None
-                    ),
+                    ensure_centered=self.ensure_centered,
                 )
             )
 

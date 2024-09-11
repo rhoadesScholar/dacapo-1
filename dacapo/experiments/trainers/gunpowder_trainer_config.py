@@ -21,6 +21,7 @@ class GunpowderTrainerConfig(TrainerConfig):
         snapshot_interval (Optional[int]): This is the number of iterations after which a new snapshot should be saved.
         min_masked (Optional[float]): This is the minimum masked value.
         clip_raw (bool): This is a boolean value indicating if the raw data should be clipped to the size of the GT data or not.
+        ensure_centered (bool): If sample points are provided, this value specifies whether those points are centered on during training. Defaults to true.
     """
 
     trainer_type = GunpowderTrainer
@@ -43,3 +44,4 @@ class GunpowderTrainerConfig(TrainerConfig):
     )
     min_masked: Optional[float] = attr.ib(default=0.15)
     clip_raw: bool = attr.ib(default=False)
+    ensure_centered: bool = attr.ib(default=True)
