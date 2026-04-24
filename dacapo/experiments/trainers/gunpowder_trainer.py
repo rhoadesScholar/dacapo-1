@@ -525,8 +525,9 @@ class GunpowderTrainer(Trainer):
                 # reverse order for raw so we can set opacity to 1, this
                 # way higher res raw replaces low res when available
                 for name, array in batch.arrays.items():
-                    print(name)
                     data = array.data[0]
+                    print(name)
+                    print(np.unique(data))
 
                     channel_dims = len(data.shape) - len(array.spec.voxel_size)
                     assert channel_dims <= 1

@@ -45,6 +45,7 @@ class IntensitiesArray(Array):
 
         self._min = array_config.min
         self._max = array_config.max
+        self._invert = array_config.invert
 
     @property
     def attrs(self):
@@ -219,9 +220,18 @@ class IntensitiesArray(Array):
             The intensities are normalized to the range (0, 1)
         """
         intensities = self._source_array[roi]
+        # threshold intensities to be between min and max
+        intensities = np.clip(intensities, self._min, self._max)
         normalized = (intensities.astype(np.float32) - self._min) / (
             self._max - self._min
         )
+        if self._invert:
+            normalized = 1.0 - normalized
+        # print("Normalized intensities stats:")
+        # print(f"  Min: {normalized.min()}")
+        # print(f"  Max: {normalized.max()}")
+        # print(f"  Mean: {normalized.mean()}")
+        # print(f"  Std: {normalized.std()}")
         return normalized
 
     def _can_neuroglance(self):

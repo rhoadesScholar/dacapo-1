@@ -31,3 +31,6 @@ class IntensitiesArrayConfig(ArrayConfig):
 
     min: float = attr.ib(metadata={"help_text": "The minimum intensity in your data"})
     max: float = attr.ib(metadata={"help_text": "The maximum intensity in your data"})
+    invert: bool = attr.ib(
+        default=False, metadata={"help_text": "Whether to invert the intensity values"}
+    )
