@@ -118,7 +118,7 @@ def balance_weights(
             slab_counts[key] = (num, den + masked_in)
         for class_id, num in zip(classes, counts):
             # update moving fraction rate to account for present instances
-            (old_num, den) = slab_counts[class_id]
+            old_num, den = slab_counts[class_id]
             slab_counts[class_id] = (num + old_num, den)
             updated_fracs.append(slab_counts[class_id][0] / slab_counts[class_id][1])
         fracs = np.array(updated_fracs)

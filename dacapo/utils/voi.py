@@ -47,7 +47,7 @@ def voi(reconstruction, groundtruth, ignore_reconstruction=[], ignore_groundtrut
     [1] Meila, M. (2007). Comparing clusterings - an information based
     distance. Journal of Multivariate Analysis 98, 873-895.
     """
-    (hyxg, hxgy) = split_vi(
+    hyxg, hxgy = split_vi(
         reconstruction, groundtruth, ignore_reconstruction, ignore_groundtruth
     )
     return (hxgy, hyxg)

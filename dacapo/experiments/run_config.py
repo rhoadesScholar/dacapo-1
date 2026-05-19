@@ -670,7 +670,7 @@ class RunConfig:
             np_to_funlib_array(in_array.cpu().numpy(), in_shift, in_voxel_size)
             for in_array in [raw]
         ]
-        (gt, target, weight, mask, prediction, gradients) = [
+        gt, target, weight, mask, prediction, gradients = [
             np_to_funlib_array(out_array.cpu().numpy(), out_shift, out_voxel_size)
             for out_array in [gt, target, weight, mask, prediction, gradients]
         ]

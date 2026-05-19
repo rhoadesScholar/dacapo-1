@@ -54,6 +54,7 @@ The `runs_base_dir` defines where your on-disk data will be stored. The `type` s
 mongodbhost: mongodb://dbuser:dbpass@dburl:dbport/
 mongodbname: dacapo
 """
+
 # %%
 # First we need to create a config store to store our configurations
 from dacapo.store.create_store import create_config_store

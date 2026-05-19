@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List, TYPE_CHECKING
 
-
 if TYPE_CHECKING:
     from dacapo.experiments.training_stats import TrainingStats
     from dacapo.experiments.validation_scores import (

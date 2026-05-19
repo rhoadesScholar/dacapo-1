@@ -52,15 +52,11 @@ def test_local_config_file():
     with tempfile.TemporaryDirectory() as tmpdir:
         # Create a config file
         config_file = Path(tmpdir, "dacapo.yaml")
-        config_file.write_text(
-            textwrap.dedent(
-                """
+        config_file.write_text(textwrap.dedent("""
                 runs_base_dir: /tmp
                 mongo_db_host: localhost
                 mongo_db_name: dacapo
-                """
-            )
-        )
+                """))
         os.environ["DACAPO_OPTIONS_FILE"] = str(config_file)
 
         # Parse the options

@@ -9,7 +9,6 @@ from upath import UPath as Path
 import logging
 from typing import Optional, Union
 
-
 logger = logging.getLogger(__name__)
 
 

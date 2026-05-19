@@ -304,7 +304,7 @@ class AffinitiesPredictor(Predictor):
         Examples:
             >>> predictor.create_weight(gt, target, mask, moving_class_counts)
         """
-        (moving_class_counts, moving_lsd_class_counts) = (
+        moving_class_counts, moving_lsd_class_counts = (
             moving_class_counts if moving_class_counts is not None else (None, None)
         )
         if self.grow_boundary_iterations > 0:
